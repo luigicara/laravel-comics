@@ -1,6 +1,6 @@
 @use "/resources/scss/partials/_mixins" as *;
 @use "/resources/scss/partials/_variables" as *;
-@import '~bootstrap/scss/bootstrap';
+// @import '~bootstrap/scss/bootstrap';
 
 * {
     margin: 0;
@@ -12,38 +12,43 @@ img {
     display: block;
 }
 
+.container {
+    max-width: 1270px;
+    margin: 0 auto;
+}
+
 header {
     height: $headerHeight;
     @include space-between;
-  
+
     img {
         max-height: 75%;
     }
-  
+
     nav {
         height: 100%;
-  
+
         ul {
             height: 100%;
             list-style: none;
             @include space-between;
-    
+
             li {
                 font-size: 0.6rem;
                 font-weight: bold;
                 margin: 0 1rem;
                 height: 100%;
-        
+
                 @include vertical-align-middle($headerHeight);
-        
+
                 &:hover {
                     border-bottom: 4px solid $primaryColor;
-        
+
                     a {
-                    color: $primaryColor;
+                        color: $primaryColor;
                     }
                 }
-        
+
                 a {
                     text-decoration: none;
                     color: black;
@@ -90,6 +95,221 @@ header {
                 font-size: 0.9rem;
             }
 
+        }
+    }
+}
+
+#categories {
+    height: 8rem;
+    background-color: $primaryColor;
+
+    .container {
+        @include space-between;
+        padding: 1rem 0;
+        height: 100%;
+
+        .categories-card {
+            line-height: 3rem;
+            font-size: 0.7rem;
+            color: white;
+
+            img {
+                height: 3.5rem;
+                max-width: 3.5rem;
+                float: left;
+                margin-right: 1rem;
+            }
+        }
+    }
+}
+
+.footer-top {
+    height: 400px;
+    background-image: url('/resources/img/footer-bg.jpg');
+    background-size: cover;
+
+    .container {
+        height: 100%;
+        padding: 2rem 0;
+        background: no-repeat right url('/resources/img/dc-logo-bg.png');
+
+        .left-col {
+            height: 100%;
+            max-width: 400px;
+            display: flex;
+            flex-direction: column;
+            flex-wrap: wrap;
+
+            ul {
+                list-style: none;
+
+                strong {
+                    display: block;
+                    margin: 1rem 0;
+                    font-size: 1.1rem;
+                    color: white;
+                }
+
+                li {
+                    margin: 0.5rem 0;
+
+                    a {
+                        text-decoration: none;
+                        font-size: 0.8rem;
+                        color: grey;
+                    }
+                }
+            }
+        }
+    }
+}
+
+footer {
+    height: $footerHeight;
+    background-color: #303030;
+
+    .container {
+        height: 100%;
+        @include space-between;
+
+        button {
+            color: white;
+            font-size: 1rem;
+            background-color: transparent;
+            padding: 0.8rem;
+            border: 2px solid $primaryColor;
+        }
+
+        div {
+            color: $primaryColor;
+            font-size: 1.2rem;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+
+            a {
+                display: inline-block;
+            }
+        }
+    }
+}
+
+#info_comic {
+    #plot {
+        @include center("bt-center");
+        @include container;
+        margin: 50px auto;
+
+        .plot_left {
+            margin-right: 50px;
+
+            h2 {
+                color: #003f5e;
+            }
+
+            .my_price {
+                width: 100%;
+
+                background-color: #55ba59;
+                color: #acf17e;
+                margin: 20px 0;
+
+                span {
+                    color: white;
+                }
+
+                @include center("bt-center");
+                padding: 0 20px;
+
+                .my_availabile {
+                    @include center("onlyFlex");
+
+                    .my_availabile-left {
+                        padding: 15px 20px;
+                        border-right: 1px solid black;
+                    }
+
+                    .my_availabile-right {
+                        padding: 15px 0;
+                        margin-left: 20px;
+                    }
+                }
+            }
+
+            p {
+                line-height: 25px;
+            }
+        }
+
+        .plot_right {
+            h4 {
+                text-align: end;
+                font-size: 12px;
+            }
+        }
+    }
+
+    .about_comic {
+        min-height: 400px;
+        background-color: #f6f6f6;
+        padding: 50px 0;
+        color: #0e496b;
+        border-top: 1px solid lightgray;
+
+        .my_container {
+            @include container;
+            @include center("onlyFlex");
+
+            .my_artists {
+                width: 60%;
+                padding-right: 20px;
+
+                &>h4,
+                &>div {
+                    border-bottom: 1px solid lightgrey;
+                    padding: 10px 0;
+                }
+
+                h4 {
+                    padding-bottom: 30px;
+                }
+
+                .my_artist {
+                    @include center("bt");
+
+                    &>div {
+                        width: 80%;
+                        color: #37bbe2;
+                    }
+                }
+            }
+
+            .my_specs {
+                width: 35%;
+                padding-right: 20px;
+
+                &>h4,
+                &>div {
+                    border-bottom: 1px solid lightgrey;
+                    padding: 10px 0;
+                }
+
+                h4 {
+                    padding-bottom: 30px;
+                }
+
+                .my_spec {
+                    @include center("bt");
+
+                    &>div {
+                        width: 65%;
+                    }
+
+                    .my_series {
+                        color: #37bbe2;
+                    }
+                }
+            }
         }
     }
 }

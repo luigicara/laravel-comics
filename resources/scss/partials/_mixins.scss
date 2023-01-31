@@ -8,3 +8,36 @@
     vertical-align: middle;
     line-height: $lh-value;
 }
+
+@mixin center($type) {
+    display: flex;
+
+    @if $type =="vertical" {
+        justify-content: center;
+    }
+
+    @else if $type =="horizontal" {
+        align-items: center;
+    }
+
+    @else if $type =="both" {
+        justify-content: center;
+        align-items: center;
+    }
+
+    @else if $type =="onlyFlex" {}
+
+    @else if $type =="bt" {
+        justify-content: space-between;
+    }
+
+    @else if $type =="bt-center" {
+        justify-content: space-between;
+        align-items: center;
+    }
+}
+
+@mixin container {
+    margin: 0 auto;
+    max-width: 1200px;
+}
