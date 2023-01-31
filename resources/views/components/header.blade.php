@@ -1,5 +1,3 @@
-@include('components.data');
-
 @php
 
     $navItems = ['CHARACTHERS', 'COMICS', 'MOVIES', 'TV', 'GAMES', 'COLLECTIBLES', 'VIDEOS', 'FANS', 'NEWS', 'SHOP'];
@@ -26,6 +24,6 @@
 </div>
 
 <section class="jumbotron">
-    <img src= {{ Vite::asset('/resources/img/jumbotron.png') }}   alt="jumbotron">
+    <img src= {{ Vite::asset('/resources/img/jumbotron.jpg') }}   alt="jumbotron">
 </section>
 
