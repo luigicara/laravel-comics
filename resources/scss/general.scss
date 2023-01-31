@@ -1,0 +1,95 @@
+@use "/resources/scss/partials/_mixins" as *;
+@use "/resources/scss/partials/_variables" as *;
+@import '~bootstrap/scss/bootstrap';
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+img {
+    display: block;
+}
+
+header {
+    height: $headerHeight;
+    @include space-between;
+  
+    img {
+        max-height: 75%;
+    }
+  
+    nav {
+        height: 100%;
+  
+        ul {
+            height: 100%;
+            list-style: none;
+            @include space-between;
+    
+            li {
+                font-size: 0.6rem;
+                font-weight: bold;
+                margin: 0 1rem;
+                height: 100%;
+        
+                @include vertical-align-middle($headerHeight);
+        
+                &:hover {
+                    border-bottom: 4px solid $primaryColor;
+        
+                    a {
+                    color: $primaryColor;
+                    }
+                }
+        
+                a {
+                    text-decoration: none;
+                    color: black;
+                }
+            }
+        }
+    }
+}
+
+.jumbotron {
+    height: 400px;
+    overflow: hidden;
+
+    img {
+        width: 100%;
+        min-height: 100%;
+    }
+}
+
+.slides {
+    background-color: #1c1c1c;
+    padding: 3rem 0;
+
+    .cards {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 2rem 1rem;
+
+        .card {
+            max-width: calc((100% - 5rem) / 6);
+
+            div {
+                overflow: hidden;
+                max-height: 12rem;
+
+                img {
+                    max-width: 100%;
+                }
+            }
+
+            .series {
+                color: white;
+                margin: 1rem 0;
+                font-size: 0.9rem;
+            }
+
+        }
+    }
+}

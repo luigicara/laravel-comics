@@ -1,0 +1,10 @@
+@mixin space-between {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+@mixin vertical-align-middle($lh-value) {
+    vertical-align: middle;
+    line-height: $lh-value;
+}
