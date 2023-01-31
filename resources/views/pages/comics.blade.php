@@ -6,9 +6,7 @@ $slides = [
     [
         "title" => "Action Comics #1000: The Deluxe Edition",
         "description" => "The celebration of 1,000 issues of Action Comics continues with a new, Deluxe Edition of the amazing comic that won raves when it hit comics shops in April! This hardcover includes all the stories from that issue, plus the tale by writer Paul Levitz and artist Neal Adams that appeared in the Action Comics: 80 Years Of Superman hardcover, as well as all the variant covers, design sketches by Jim Lee for Superman’s new look, scripts for the stories, the original art from the lost story featuring art by Curt Swan and more! Plus: a complete reprint of the stories that started it all—the Superman stories Action Comics #1 and 2 from 1938!",
-        "thumb" => "https://www.dccomics.com/sites/default/files/styles/covers192x291/public/comic-covers/2018/09/AC1000_DLX_162-001_HD_5ba13723281ab0.3
-        
-        7845353.jpg?itok=ZsI-C5eX",
+        "thumb" => "https://www.dccomics.com/sites/default/files/styles/covers192x291/public/comic-covers/2018/09/AC1000_DLX_162-001_HD_5ba13723281ab0.37845353.jpg?itok=ZsI-C5eX",
         "price" => "$19.99",
         "series" => "Action Comics",
         "sale_date" => "2018-10-02",
@@ -218,6 +216,33 @@ $slides = [
         ],
     ],
 ];
+
+$categoriesCard = [
+                [
+                    'title' => 'Digital Comics',
+                    'img'=>'/resources/img/buy-comics-digital-comics.png'
+                ],
+
+                [
+                    'title' => 'DC Merchandise',
+                    'img'=>'/resources/img/buy-comics-merchandise.png'
+                ],
+
+                [
+                    'title' => 'Subscription',
+                    'img'=>'/resources/img/buy-comics-subscriptions.png'
+                ],
+
+                [
+                    'title' => 'Comic Shop Locator',
+                    'img'=>'/resources/img/buy-comics-shop-locator.png'
+                ],
+
+                [
+                    'title' => 'DC Power Visa',
+                    'img'=>'/resources/img/buy-dc-power-visa.svg'
+                ],
+            ]
 @endphp
 
 @section('head')
@@ -227,30 +252,31 @@ $slides = [
 @section('content')
 <section class="slides">
     <div class="container">
-        <section class="cards">
-            @php
-                foreach ($slides as $slide) 
-                    echo '<div class="card">'
-                            . '<div>'
-                                . '<img src="' . $slide['thumb'] . '" alt="thumbnail">'
-                            . '</div>'
+        <section class="cards">  
+            @foreach ($slides as $slide) 
+                <div class="card" style="cursor: pointer;" onclick="window.location= window.location.href + 'comic-details'">
+                    <div>
+                        <img src={{ $slide['thumb'] }} alt="thumbnail">
+                    </div>
 
-                            . '<div class="series">'
-                                . $slide['series']
-                            . '</div>'
-                        . '</div>'
-                
-            @endphp
-            {{-- <div v-for="slide in slides" class="card">
-                <div>
-                    <img :src="slide.thumb" alt="thumbnail">
+                    <div class="series">
+                        {{$slide['series']}}
+                    </div>
                 </div>
-
-                <div class="series">
-                    {{ slide.series.toUpperCase() }}
-                </div>
-            </div> --}}
+            @endforeach
         </section>
+    </div>
+</section>
+
+<section id="categories">
+    <div class="container">
+        @foreach ($categoriesCard as $card)
+            <div class="categories-card"> 
+                <img src= {{ Vite::asset($card['img']) }}  alt="img">
+
+                <span>{{ $card['title'] }}</span>
+            </div>
+        @endforeach
     </div>
 </section>
 @endsection
